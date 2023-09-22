@@ -2,7 +2,7 @@
 {
     internal static class ControlHub
     {
-
+        //
         internal static List<string> LoadImageList() => ImageLoader.ListImagesInFolder();
 
         internal static Image LoadSelectedImage(string fileName) => ImageLoader.LoadImage(fileName);
