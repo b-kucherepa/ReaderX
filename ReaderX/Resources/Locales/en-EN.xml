@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Locale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <languageName>English</languageName>
+  <localeCode>en-EN</localeCode>
+  <buttonLoadText>Open a text file</buttonLoadText>
+  <buttonFont>Set the font</buttonFont>
+  <buttonColor>Set the text color</buttonColor>
+  <buttonLoadImages>Select an image folder</buttonLoadImages>
+  <useTheButtonToList>Use the button above to list the images</useTheButtonToList>
+  <hotkeys>HOTKEYS:</hotkeys>
+  <hotkeyLabelTextControl>Text control:</hotkeyLabelTextControl>
+  <hotkeyLoadText>opens a text file</hotkeyLoadText>
+  <hotkeyFont>changes the font</hotkeyFont>
+  <hotkeyColor>selects the color</hotkeyColor>
+  <hotkeyScrollUp>scrolls text up</hotkeyScrollUp>
+  <hotkeyScrollDown>scrolls text down</hotkeyScrollDown>
+  <hotkeyLabelImageControl>Image control:</hotkeyLabelImageControl>
+  <hotkeyLoadImages>provides the image folder path</hotkeyLoadImages>
+  <hotkeySelectNextImage>selects the next image in the list</hotkeySelectNextImage>
+  <hotkeySelectPreviousImage>selects the previous image in the list</hotkeySelectPreviousImage>
+  <hotkeyLabelSlideshowControl>Slideshow control:</hotkeyLabelSlideshowControl>
+  <hotkeySlideshow>enables\disables slideshow</hotkeySlideshow>
+  <hotkeySlideshowRandom>makes slideshow progress randomly</hotkeySlideshowRandom>
+  <hotkeyLabelHideElements>Hiding elements:</hotkeyLabelHideElements>
+  <hotkeyHideGUI>hides all GUI controls</hotkeyHideGUI>
+  <hotkeyHideText>hides the text box</hotkeyHideText>
+  <hotkeyExit>exits the program</hotkeyExit>
+  <checkBoxSlideshow>change the image each</checkBoxSlideshow>
+  <secondsLabel>second(s)</secondsLabel>
+  <checkBoxRandomStep>randomize the slideshow</checkBoxRandomStep>
+  <checkBoxHideText>hide the text</checkBoxHideText>
+  <checkBoxHideGUI>Hide control elements</checkBoxHideGUI>
+  <buttonExit>Quit</buttonExit>
+</Locale>

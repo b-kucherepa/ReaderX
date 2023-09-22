@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Locale xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <languageName>Русский</languageName>
+  <localeCode>ru-RU</localeCode>
+  <buttonLoadText>Открыть текстовый файл</buttonLoadText>
+  <buttonFont>Выбрать шрифт</buttonFont>
+  <buttonColor>Выбрать цвет шрифта</buttonColor>
+  <buttonLoadImages>Указать папку с фонами</buttonLoadImages>
+  <useTheButtonToList>Нажмите кнопку выше для выбора фонов</useTheButtonToList>
+  <hotkeys>ГОРЯЧИЕ КЛАВИШИ:</hotkeys>
+  <hotkeyLabelTextControl>Управление текстом:</hotkeyLabelTextControl>
+  <hotkeyLoadText>открыть текстовый файл</hotkeyLoadText>
+  <hotkeyFont>выбрать шрифт</hotkeyFont>
+  <hotkeyColor>выбрать цвет щрифта</hotkeyColor>
+  <hotkeyScrollUp>прокрутить текст вверх</hotkeyScrollUp>
+  <hotkeyScrollDown>прокрутить текст вниз</hotkeyScrollDown>
+  <hotkeyLabelImageControl>Управления изображениями:</hotkeyLabelImageControl>
+  <hotkeyLoadImages>выбрать путь к папке с фонами</hotkeyLoadImages>
+  <hotkeySelectNextImage>выбрать следующий фон в списке</hotkeySelectNextImage>
+  <hotkeySelectPreviousImage>выбрать предыдущий фон в списке</hotkeySelectPreviousImage>
+  <hotkeyLabelSlideshowControl>Управление слайдшоу:</hotkeyLabelSlideshowControl>
+  <hotkeySlideshow>включить\выключить слайдшоу</hotkeySlideshow>
+  <hotkeySlideshowRandom>активирует случайный выбор фона</hotkeySlideshowRandom>
+  <hotkeyLabelHideElements>Скрытие элементов:</hotkeyLabelHideElements>
+  <hotkeyHideGUI>скрыть графический интерфейс</hotkeyHideGUI>
+  <hotkeyHideText>скрыть текст</hotkeyHideText>
+  <hotkeyExit>выход из программы</hotkeyExit>
+  <checkBoxSlideshow>сменять фон через</checkBoxSlideshow>
+  <secondsLabel>секунд(у)</secondsLabel>
+  <checkBoxRandomStep>случайный выбор фона</checkBoxRandomStep>
+  <checkBoxHideText>скрыть текст</checkBoxHideText>
+  <checkBoxHideGUI>Скрыть графический интерфейс</checkBoxHideGUI>
+  <buttonExit>Выход</buttonExit>
+</Locale>
