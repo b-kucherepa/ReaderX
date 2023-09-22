@@ -11,7 +11,8 @@ namespace ReaderX
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            ControlHub.InitializateProgram();
+            Application.Run(ControlHub.GUI);
         }
 
         public static void Exit() => Application.Exit();
