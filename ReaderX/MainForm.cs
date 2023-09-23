@@ -10,7 +10,6 @@ namespace ReaderX
         private Timer _timer;
         private Random _random;
 
-        private Control[] _textItemsList;
         private Control[] _hidableItemsList;
 
         internal MainForm()
@@ -19,15 +18,6 @@ namespace ReaderX
             this.Size = SystemInformation.PrimaryMonitorSize;
             textBox.MinimumSize = this.Size;
             textBox.MaximumSize = new Size(this.Width, 0);
-
-            _textItemsList = new Control[]
-            {
-                textBox,
-                checkBoxSlideshow,
-                checkBoxHideText,
-                checkBoxRandomStep,
-                secondsLabel
-            };
 
             _hidableItemsList = new Control[]
             {
@@ -251,9 +241,7 @@ namespace ReaderX
 
         private void OnColorButtonClicked(object? sender, EventArgs e)
         {
-            Color color = TextLoader.SelectColor();
-            foreach (Control item in _textItemsList)
-                item.ForeColor = color;
+            textBox.ForeColor = TextLoader.SelectColor();
         }
 
         private void OnVerticalScrolling(object? sender, EventArgs e)
