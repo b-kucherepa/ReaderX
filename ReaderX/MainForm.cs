@@ -55,7 +55,7 @@ namespace ReaderX
 
         public void InitializeLocale()
         {
-            Locale locale = ControlHub.GetLocale();
+            Locale locale = LocaleManager.GetLocale();
 
             buttonLoadText.Text = locale.buttonLoadText ?? buttonLoadText.Text;
             buttonFont.Text = locale.buttonFont ?? buttonFont.Text;
@@ -208,7 +208,7 @@ namespace ReaderX
 
                 //app closing:
                 case (Keys.Escape):
-                    ControlHub.Exit();
+                    Program.Exit();
                     break;
             }
         }
@@ -220,7 +220,7 @@ namespace ReaderX
 
         private void OnLoadTextClicked(object? sender, EventArgs e)
         {
-            textBox.Text = ControlHub.LoadText();
+            textBox.Text = TextLoader.LoadText();
 
             UpdateScrollBar();
             
@@ -245,13 +245,13 @@ namespace ReaderX
 
         private void OnFontButtonClicked(object? sender, EventArgs e)
         {
-            textBox.Font = ControlHub.SelectFont();
+            textBox.Font = TextLoader.SelectFont();
             UpdateScrollBar();
         }
 
         private void OnColorButtonClicked(object? sender, EventArgs e)
         {
-            Color color = ControlHub.SelectColor();
+            Color color = TextLoader.SelectColor();
             foreach (Control item in _textItemsList)
                 item.ForeColor = color;
         }
@@ -276,7 +276,7 @@ namespace ReaderX
 
         private void OnLoadImagesClicked(object? sender, EventArgs e)
         {
-            string[] imageArray = ControlHub.LoadImageList().ToArray();
+            string[] imageArray = ImageLoader.ListImagesInFolder().ToArray();
             for (int i = 0; i < imageArray.Length; i++)
             {
                 imageArray[i] = Path.GetFileName(imageArray[i]);
@@ -289,7 +289,7 @@ namespace ReaderX
 
         private void OnImageInListSelected(object? sender, EventArgs e)
         {
-            Image image = ControlHub.LoadSelectedImage(listBoxImages.SelectedItem.ToString());
+            Image image = ImageLoader.LoadImage (listBoxImages.SelectedItem.ToString());
             BackgroundImage?.Dispose();
             BackgroundImage = image;
         }
@@ -366,7 +366,7 @@ namespace ReaderX
 
         private void OnExitButtonClick(object? sender, EventArgs e)
         {
-            ControlHub.Exit();
+            Program.Exit();
         }
 
         //private void OnMouseMoved(object? sender, MouseEventArgs e)
