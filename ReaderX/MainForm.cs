@@ -12,6 +12,8 @@ namespace ReaderX
 
         private Control[] _hidableItemsList;
 
+        private string _helpTips;
+
         internal MainForm()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace ReaderX
                 checkBoxRandomStep,
                 numericUpDownSlideshow,
                 checkBoxHideText,
+                buttonHelp,
                 buttonExit
             };
 
@@ -59,60 +62,33 @@ namespace ReaderX
             checkBoxHideText.Text = locale.checkBoxHideText ?? checkBoxHideText.Text;
             checkBoxHideGUI.Text = locale.checkBoxHideGUI ?? checkBoxHideGUI.Text;
 
+            buttonHelp.Text = locale.buttonHelp ?? buttonHelp.Text;
+
             buttonExit.Text = locale.buttonExit ?? buttonExit.Text;
 
-            string[] listBoxImagesTips = new string[]
-                {
-                locale.useTheButtonToList,
-                "",
-                locale.hotkeys,
-                "",
-                locale.hotkeyLabelTextControl,
-                ">T<",
-                locale.buttonLoadText,
-                ">F<",
-                locale.buttonFont,
-                ">C<",
-                locale.buttonColor,
-                ">W<",
-                locale.hotkeyScrollUp,
-                ">S<",
-                locale.hotkeyScrollDown,
-                "",
-                locale.hotkeyLabelImageControl,
-                ">I<",
-                locale.hotkeyLoadImages,
-                ">D<",
-                locale.hotkeySelectNextImage,
-                ">A<",
-                locale.hotkeySelectPreviousImage,
-                "",
-                locale.hotkeyLabelSlideshowControl,
-                ">E<",
-                locale.hotkeySlideshow,
-                ">R<",
-                locale.checkBoxRandomStep,
-                "",
-                locale.hotkeyLabelHideElements,
-                ">H<",
-                locale.hotkeyHideGUI,
-                ">B<",
-                locale.hotkeyHideText,
-                "",
-                ">Escape<",
-                locale.hotkeyExit
-                };
-
-            bool listBoxImagesTipsIsComplete = true;
-            foreach (string s in listBoxImagesTips)
-                if (s is null)
-                    listBoxImagesTipsIsComplete = false;
-
-            if (listBoxImagesTipsIsComplete)
-            {
-                listBoxImages.Items.Clear();
-                listBoxImages.Items.AddRange(listBoxImagesTips);
-            } //else leaving default hard-coded text
+            _helpTips =
+                locale.tips +
+                "\n\n" + locale.hotkeys +
+                "\n\n" + locale.hotkeyLabelTextControl +
+                "\n>T< - " + locale.buttonLoadText +
+                "\n>F< - " + locale.buttonFont +
+                "\n>C< - " + locale.buttonColor +
+                "\n>W< - " + locale.hotkeyScrollUp +
+                "\n>S< - " + locale.hotkeyScrollDown +
+                "\n\n" + locale.hotkeyLabelImageControl +
+                "\n>I< - " + locale.hotkeyLoadImages +
+                "\n>D< - " + locale.hotkeySelectNextImage +
+                "\n>A< - " + locale.hotkeySelectPreviousImage +
+                "\n\n" + locale.hotkeyLabelSlideshowControl +
+                "\n>E< - " + locale.hotkeySlideshow +
+                "\n>R< - " + locale.checkBoxRandomStep +
+                "\n\n" + locale.hotkeyLabelHideElements +
+                "\n>X< - " + locale.hotkeyHideGUI +
+                "\n>B< - " + locale.hotkeyHideText +
+                "\n" +
+                "\n>H< - " + locale.hotkeyHelp +
+                "\n" +
+                "\n>Escape< - " + locale.hotkeyExit;
         }
 
         private void InitializeEventSubscriptions()
@@ -121,13 +97,13 @@ namespace ReaderX
             this.MouseWheel += OnMouseWheel;
 
             //text GUI events
-            buttonLoadText.Click += OnLoadTextClicked;
+            buttonLoadText.Click += OnLoadTextButtonClicked;
             buttonFont.Click += OnFontButtonClicked;
             buttonColor.Click += OnColorButtonClicked;
             verticalScrollBar.ValueChanged += OnVerticalScrolling;
 
             //images GUI events
-            buttonLoadImages.Click += OnLoadImagesClicked;
+            buttonLoadImages.Click += OnLoadImagesButtonClicked;
             listBoxImages.SelectedIndexChanged += OnImageInListSelected;
 
             //slideshow GUI events
@@ -141,6 +117,7 @@ namespace ReaderX
             checkBoxHideGUI.CheckedChanged += OnHideGUICheckedChanged;
 
             //exit button events
+            buttonHelp.Click += OnHelpButtonClicked;
             buttonExit.Click += OnExitButtonClick;
         }
 
@@ -150,7 +127,7 @@ namespace ReaderX
             {
                 //text related buttons:
                 case (Keys.T):
-                    OnLoadTextClicked(sender, e);
+                    OnLoadTextButtonClicked(sender, e);
                     break;
                 case (Keys.F):
                     OnFontButtonClicked(sender, e);
@@ -169,7 +146,7 @@ namespace ReaderX
 
                 //image loading button:
                 case (Keys.I):
-                    OnLoadImagesClicked(sender, e);
+                    OnLoadImagesButtonClicked(sender, e);
                     break;
 
                 //changing the selected image:
@@ -189,7 +166,7 @@ namespace ReaderX
                     break;
 
                 //hiding checkers:
-                case (Keys.H):
+                case (Keys.X):
                     checkBoxHideGUI.Checked = !checkBoxHideGUI.Checked;
                     break;
                 case (Keys.B):
@@ -197,6 +174,9 @@ namespace ReaderX
                     break;
 
                 //app closing:
+                case (Keys.H):
+                    OnHelpButtonClicked(sender, e);
+                    break;
                 case (Keys.Escape):
                     Program.Exit();
                     break;
@@ -208,12 +188,12 @@ namespace ReaderX
             ChangeScrollBarValueTo(-e.Delta);
         }
 
-        private void OnLoadTextClicked(object? sender, EventArgs e)
+        private void OnLoadTextButtonClicked(object? sender, EventArgs e)
         {
             textBox.Text = TextLoader.LoadText();
 
             UpdateScrollBar();
-            
+
         }
 
         private void UpdateScrollBar()
@@ -262,7 +242,7 @@ namespace ReaderX
             verticalScrollBar.Value = newScrollBarValue;
         }
 
-        private void OnLoadImagesClicked(object? sender, EventArgs e)
+        private void OnLoadImagesButtonClicked(object? sender, EventArgs e)
         {
             string[] imageArray = ImageLoader.ListImagesInFolder().ToArray();
             for (int i = 0; i < imageArray.Length; i++)
@@ -277,7 +257,7 @@ namespace ReaderX
 
         private void OnImageInListSelected(object? sender, EventArgs e)
         {
-            Image image = ImageLoader.LoadImage (listBoxImages.SelectedItem.ToString());
+            Image image = ImageLoader.LoadImage(listBoxImages.SelectedItem.ToString());
             BackgroundImage?.Dispose();
             BackgroundImage = image;
         }
@@ -350,6 +330,11 @@ namespace ReaderX
                 UpdateScrollBar();
                 checkBoxHideGUI.Text = "Hide control elements";
             }
+        }
+        private void OnHelpButtonClicked(object? sender, EventArgs e)
+        {
+            MessageBox.Show(_helpTips, buttonHelp.Text,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void OnExitButtonClick(object? sender, EventArgs e)

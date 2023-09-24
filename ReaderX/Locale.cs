@@ -12,7 +12,7 @@
 
         public string buttonLoadImages;
 
-        public string useTheButtonToList;
+        public string tips;
         public string hotkeys;
         public string hotkeyLabelTextControl;
         public string hotkeyLoadText;
@@ -30,6 +30,7 @@
         public string hotkeyLabelHideElements;
         public string hotkeyHideGUI;
         public string hotkeyHideText;
+        public string hotkeyHelp;
         public string hotkeyExit;
 
         public string checkBoxSlideshow;
@@ -39,6 +40,7 @@
         public string checkBoxHideText;
         public string checkBoxHideGUI;
 
+        public string buttonHelp;
         public string buttonExit;
     }
 }
