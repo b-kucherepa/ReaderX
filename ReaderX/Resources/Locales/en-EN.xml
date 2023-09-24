@@ -10,7 +10,7 @@
 
 Press the "Select an image folder" button to list background images from a directory.
 
-Press the "Hide control elements" button to leave only a text over a background image.</tips>
+Press the "Hide control elements" button to leave only text over a background image.</tips>
   <hotkeys>HOTKEYS:</hotkeys>
   <hotkeyLabelTextControl>Text control:</hotkeyLabelTextControl>
   <hotkeyLoadText>opens a text file</hotkeyLoadText>

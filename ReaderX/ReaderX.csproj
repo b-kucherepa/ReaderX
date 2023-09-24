@@ -28,6 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="App.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\ReaderXlogo.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

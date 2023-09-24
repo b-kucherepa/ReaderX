@@ -1,6 +1,5 @@
 using Timer = System.Windows.Forms.Timer;
 
-
 namespace ReaderX
 {
     public partial class MainForm : Form
@@ -334,7 +333,7 @@ namespace ReaderX
         private void OnHelpButtonClicked(object? sender, EventArgs e)
         {
             MessageBox.Show(_helpTips, buttonHelp.Text,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void OnExitButtonClick(object? sender, EventArgs e)
