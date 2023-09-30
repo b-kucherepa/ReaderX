@@ -1,3 +1,7 @@
+/*********************************************************************************************
+ * The entry point. It has only one class interface method which closes the application.
+*********************************************************************************************/
+
 namespace ReaderX
 {
     internal static class Program
@@ -13,6 +17,7 @@ namespace ReaderX
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }
+
 
         public static void Exit() => Application.Exit();
     }

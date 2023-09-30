@@ -2,6 +2,14 @@ using Timer = System.Windows.Forms.Timer;
 
 namespace ReaderX
 {
+    /// <summary>
+    /// The manually created part of MainForm file.
+    /// </summary>
+    /// <remarks>
+    /// Currently contains main logic.
+    /// The main logic should be incapsulated into an abstraction layer 
+    /// in case the application will be cross-platform
+    /// </remarks>
     public partial class MainForm : Form
     {
         private const int MSECONDS_IN_SECOND = 1000;
@@ -45,6 +53,10 @@ namespace ReaderX
             InitializeEventSubscriptions();
         }
 
+
+        /// <summary>
+        /// Sets MainForm elements text according to the most appropriate locale
+        /// </summary>
         public void InitializeLocale()
         {
             Locale locale = LocaleManager.GetLocale();
@@ -89,6 +101,7 @@ namespace ReaderX
                 "\n" +
                 "\n>Escape< - " + locale.hotkeyExit;
         }
+
 
         private void InitializeEventSubscriptions()
         {
@@ -187,14 +200,19 @@ namespace ReaderX
             ChangeScrollBarValueTo(-e.Delta);
         }
 
+
         private void OnLoadTextButtonClicked(object? sender, EventArgs e)
         {
-            textBox.Text = TextLoader.LoadText();
+            textBox.Text = TextManager.LoadText();
 
             UpdateScrollBar();
 
         }
 
+
+        /// <summary>
+        /// Updates scroll bar position and aligns text correspondingly if needed
+        /// </summary>
         private void UpdateScrollBar()
         {
             int textBoxScrollLimit = this.Height - textBox.Height;
@@ -214,13 +232,13 @@ namespace ReaderX
 
         private void OnFontButtonClicked(object? sender, EventArgs e)
         {
-            textBox.Font = TextLoader.SelectFont();
+            textBox.Font = TextManager.SelectFont();
             UpdateScrollBar();
         }
 
         private void OnColorButtonClicked(object? sender, EventArgs e)
         {
-            textBox.ForeColor = TextLoader.SelectColor();
+            textBox.ForeColor = TextManager.SelectColor();
         }
 
         private void OnVerticalScrolling(object? sender, EventArgs e)
@@ -229,6 +247,11 @@ namespace ReaderX
             textBox.Location = new Point(textBox.Location.X, newTextBoxPosition);
         }
 
+
+        /// <summary>
+        /// Adds a value to the current scroll bar position limiting the result safely
+        /// </summary>
+        /// <param name="step">a value to be added</param>
         private void ChangeScrollBarValueTo(int step)
         {
             int newScrollBarValue = verticalScrollBar.Value + step;
@@ -261,6 +284,12 @@ namespace ReaderX
             BackgroundImage = image;
         }
 
+
+        /// <summary>
+        /// Adds a value to the current list box selected item index emulating 
+        /// the looping scroll effect
+        /// </summary>
+        /// <param name="step">a value to be added</param>
         internal void SwitchImageIndexAt(int step)
         {
             int lastIndex = listBoxImages.Items.Count;
@@ -284,10 +313,12 @@ namespace ReaderX
                 _timer.Stop();
         }
 
+
         private void OnSlideshowIntervalFieldChanged(object? sender, EventArgs e)
         {
             _timer.Interval = (int)numericUpDownSlideshow.Value * MSECONDS_IN_SECOND;
         }
+
 
         internal void OnSlideshowTimerTick(object? sender, EventArgs e)
         {
@@ -301,6 +332,7 @@ namespace ReaderX
 
             SwitchImageIndexAt(slideshowStep);
         }
+
 
         private void OnHideTextCheckedChanged(object? sender, EventArgs e)
         {
@@ -330,36 +362,17 @@ namespace ReaderX
                 checkBoxHideGUI.Text = "Hide control elements";
             }
         }
+
         private void OnHelpButtonClicked(object? sender, EventArgs e)
         {
             MessageBox.Show(_helpTips, buttonHelp.Text,
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         private void OnExitButtonClick(object? sender, EventArgs e)
         {
             Program.Exit();
         }
-
-        //private void OnMouseMoved(object? sender, MouseEventArgs e)
-        //{
-        //    if (verticalScrollBar.Bounds.Contains(e.Location))
-        //        verticalScrollBar.Show();
-        //    else
-        //        verticalScrollBar.Hide();
-
-        //    if (checkBoxHideGUI.Checked)
-        //    {
-        //        if (checkBoxHideGUI.Bounds.Contains(e.Location)) { }
-
-        //        checkBoxHideGUI.Text = "Show control elements";
-        //        else
-        //            checkBoxHideGUI.Text = "X";
-        //    }
-        //    else
-        //    {
-        //        checkBoxHideGUI.Text = "Hide control elements";
-        //    }
-        //}
     }
 }

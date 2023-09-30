@@ -6,7 +6,14 @@
   <buttonFont>Set the font</buttonFont>
   <buttonColor>Set the text color</buttonColor>
   <buttonLoadImages>Select an image folder</buttonLoadImages>
-  <tips>Press the "Open a text file" button to load text .
+  <checkBoxSlideshow>change the image each</checkBoxSlideshow>
+  <secondsLabel>second(s)</secondsLabel>
+  <checkBoxRandomStep>randomize the slideshow</checkBoxRandomStep>
+  <checkBoxHideText>hide the text</checkBoxHideText>
+  <checkBoxHideGUI>Hide control elements</checkBoxHideGUI>
+  <buttonHelp>Help</buttonHelp>
+  <buttonExit>Quit</buttonExit>
+  <tips>Press the "Open a text file" button to load text.
 
 Press the "Select an image folder" button to list background images from a directory.
 
@@ -30,11 +37,4 @@ Press the "Hide control elements" button to leave only text over a background im
   <hotkeyHideText>hides the text box</hotkeyHideText>
   <hotkeyHelp>shows help (this window)</hotkeyHelp> 
   <hotkeyExit>exits the program</hotkeyExit>
-  <checkBoxSlideshow>change the image each</checkBoxSlideshow>
-  <secondsLabel>second(s)</secondsLabel>
-  <checkBoxRandomStep>randomize the slideshow</checkBoxRandomStep>
-  <checkBoxHideText>hide the text</checkBoxHideText>
-  <checkBoxHideGUI>Hide control elements</checkBoxHideGUI>
-  <buttonHelp>Help</buttonHelp>
-  <buttonExit>Quit</buttonExit>
 </Locale>

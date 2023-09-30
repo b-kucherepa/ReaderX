@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReaderX", "ReaderX\ReaderX.csproj", "{1445BC87-8340-4A1B-B58F-A016C739A9EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsWinforms", "TestsWinforms\TestsWinforms.csproj", "{716EA8D8-0573-4AF5-B55A-10E24BD23B9C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{1445BC87-8340-4A1B-B58F-A016C739A9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1445BC87-8340-4A1B-B58F-A016C739A9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1445BC87-8340-4A1B-B58F-A016C739A9EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{716EA8D8-0573-4AF5-B55A-10E24BD23B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{716EA8D8-0573-4AF5-B55A-10E24BD23B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{716EA8D8-0573-4AF5-B55A-10E24BD23B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{716EA8D8-0573-4AF5-B55A-10E24BD23B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

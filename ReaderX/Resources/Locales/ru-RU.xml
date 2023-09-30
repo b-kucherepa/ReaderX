@@ -6,10 +6,17 @@
   <buttonFont>Выбрать шрифт</buttonFont>
   <buttonColor>Выбрать цвет шрифта</buttonColor>
   <buttonLoadImages>Указать папку с фонами</buttonLoadImages>
+  <checkBoxSlideshow>сменять фон через</checkBoxSlideshow>
+  <secondsLabel>секунд(у)</secondsLabel>
+  <checkBoxRandomStep>случайный выбор фона</checkBoxRandomStep>
+  <checkBoxHideText>скрыть текст</checkBoxHideText>
+  <checkBoxHideGUI>Скрыть элементы управления</checkBoxHideGUI>
+  <buttonHelp>Помощь</buttonHelp>
+  <buttonExit>Выход</buttonExit>
   <tips>Нажмите кнопку "Открыть текстовый файл", чтобы загрузить текст.
-  
+
 Нажмите кнопку "Указать папку с фонами", чтобы показать лист фоновых изображений в папке.
-  
+
 Нажмите кнопку "Скрыть элементы управления", чтобы оставить только текст на фоне изображения.\n</tips>
   <hotkeys>ГОРЯЧИЕ КЛАВИШИ:</hotkeys>
   <hotkeyLabelTextControl>Управление текстом:</hotkeyLabelTextControl>
@@ -30,11 +37,4 @@
   <hotkeyHideText>скрыть текст</hotkeyHideText>
   <hotkeyHelp>показать помощь (это окно)</hotkeyHelp>
   <hotkeyExit>выход из программы</hotkeyExit>
-  <checkBoxSlideshow>сменять фон через</checkBoxSlideshow>
-  <secondsLabel>секунд(у)</secondsLabel>
-  <checkBoxRandomStep>случайный выбор фона</checkBoxRandomStep>
-  <checkBoxHideText>скрыть текст</checkBoxHideText>
-  <checkBoxHideGUI>Скрыть элементы управления</checkBoxHideGUI>
-  <buttonHelp>Помощь</buttonHelp>
-  <buttonExit>Выход</buttonExit>
 </Locale>
