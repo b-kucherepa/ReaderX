@@ -23,15 +23,15 @@
         {
             using (OpenFileDialog openFileDialog = new())
             {
-                openFileDialog.InitialDirectory = _last_file_path;
+                openFileDialog.InitialDirectory = Path.GetDirectoryName(_last_file_path);
                 openFileDialog.Filter = FILE_TYPES_FILTER;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    _last_file_path = openFileDialog.FileName;
+                    _last_file_path = openFileDialog.FileName??DEFAULT_FILE_PATH;
                     try
                     {
-                        return File.ReadAllText(openFileDialog.FileName);
+                        return File.ReadAllText(_last_file_path);
                     }
                     catch
                     {
